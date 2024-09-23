@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+    font-style: normal;
+    font-family: "Roboto Mono", monospace;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('assets/imgs/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -100px;
+}
+
+main {
+    width: 550px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    color: rgb(236, 234, 234);
+    text-shadow: 0 0 5px rgb(19, 19, 19);
+}
+
+.fild_container {
+    width: 80%;
+    border: 1px solid rgb(83, 83, 83);
+    margin-bottom: 25px;
+    background-color: whitesmoke;
+}
+
+#code_country,
+#number {
+    height: 35px;
+    border: 0px;
+    font-size: 1.1em;
+    background-color: whitesmoke;
+}
+
+#code_country {
+    width: 24%;
+    text-align: center;
+    border-right: 1px solid rgb(83, 83, 83);
+}
+
+#number {
+    width: 73%;
+    padding: 0 5px;
+}
+
+#number:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.open_contact {
+    padding: 10px 20px; 
+    font-size: 1.2em;
+    border-radius: 50px;
+    border: 1px solid rgba(26, 26, 26, 0.692);
+    background-color: #787c78ce;
+    color: whitesmoke;
+    transition: .3s
+}
+
+.open_contact:hover {
+    background-color: #2c8d2cda;
+}
