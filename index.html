@@ -14,9 +14,21 @@
                 <option value="55">+55 🇧🇷</option>
                 <option value="595">+595 🇵🇾</option>
             </select>
-            <input type="text" id="number">
+            <input type="text" id="number" placeholder="Phone number">
         </div>
-        <button class="open_contact" src="" onclick="link_builder()">Open contact</button>
+        <span id="erros"></span>
+        <div class="link_container">
+            <span id="link_content"></span>
+            <button class="btn_copy">copy</button>
+        </div>
+        <div class="checkbox_container">
+            <label class="checkbox_box">
+                <input type="checkbox" id="open_link">
+                <span class="naoSelecionavel">Open contat in a new aba</span>
+            </label>
+        </div>
+        
+        <button class="open_contact" onclick="link_builder()">Open contact</button>
     </main>
     
     <script src="script.js"></script>
