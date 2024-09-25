@@ -18,8 +18,20 @@ function link_builder() {
     }
 }
 
-document.getElementById('btn_copy').addEventListener('click', clipboardCopy);
-async function clipboardCopy() {
-  let text = document.querySelector("#link_content").value;
-  await navigator.clipboard.writeText(text);
+
+
+document.getElementById('btn_copy').addEventListener('click', copy_link);
+async function copy_link() {
+  let text = document.querySelector("#link_content").textContent;
+  const alert = document.getElementById('alert_container').style
+  if (text != '') {
+    await navigator.clipboard.writeText(text);
+    console.log(text)
+    alert.opacity = 1
+    setTimeout(() => {
+        alert.opacity = 0
+    }, 2000)
+  }
+  
+  
 }
