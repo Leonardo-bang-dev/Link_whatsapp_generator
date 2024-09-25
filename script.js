@@ -32,6 +32,4 @@ async function copy_link() {
         alert.opacity = 0
     }, 2000)
   }
-  
-  
 }

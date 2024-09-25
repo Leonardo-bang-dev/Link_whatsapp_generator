@@ -45,9 +45,12 @@ h1 {
     border: 1px solid rgb(83, 83, 83);
     margin-bottom: 5px;
     background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#code_country,
+.select,
 #number {
     height: 35px;
     border: 0px;
@@ -55,21 +58,15 @@ h1 {
     background-color: whitesmoke;
 }
 
-#code_country {
-    width: 23%;
-    text-align: center;
-    border-right: 1px solid rgb(83, 83, 83);
-}
-
 #number {
-    width: 73%;
+    width: 75%;
     padding: 0 5px;
 }
 
-#number:focus {
+#number:focus, #code_country:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
-}
+}   
 
 .open_contact {
     padding: 10px 20px; 
@@ -127,6 +124,46 @@ h1 {
     /* cursor: default; */
 }
 
+/* slect box */
+
+.select {
+    position: relative;
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid rgb(83, 83, 83);
+}
+
+.select_title{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.select_title span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    
+}
+
+.img_select {
+    width: 45%;
+    height: auto;
+}
+
+.select_optios {
+    position: absolute;
+    text-align: end;
+    background-image: url('assets/imgs/background.jpg');
+    background-repeat: no-repeat;           
+    background-size: cover;
+}
+
 
 /* Erros */
 
@@ -137,7 +174,7 @@ h1 {
 }
 
 /* fild_link_show*/
-.link_container {
+#link_container {
     width: 80%;
     height: 35px;
     background-color: whitesmoke;
@@ -146,7 +183,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    display: none;
 }
 
 #link_content {
@@ -156,9 +193,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: .7;
 }
 
-.link_container button {
+#link_container button {
     width: 20%;
     font-size: 1.0em;
     height: 100%;
@@ -170,11 +208,11 @@ h1 {
     transition: .3s;
 }
 
-.link_container button:hover {
+#link_container button:hover {
     background-color: #b6b6b6d8;
 }
 
-.link_container button:active {
+#link_container button:active {
     background-color: #ffd445da;
 }
 
