@@ -31,7 +31,7 @@ async function copy_link() {
 
 /* Active the dropdown function */
 
-function active_dropdow() {
+function active_dropdown() {
     const dropdown_item = document.querySelectorAll('.dropdown-list__item')
     const dropdown_list = document.querySelector('.dropdown-list')
     const dropdown = document.querySelector('.dropdown-select')
@@ -59,16 +59,18 @@ function active_dropdow() {
     })
 }
 
-function select_dorpdow() {
+function select_dropdown() {
     const dropdown_item = document.querySelectorAll('.dropdown-list__item')
     const select = document.querySelector('.select')
     const select_img = document.querySelector('.select-img')
     for (let i=0;i<dropdown_item.length;i++) {
-        console.log('ghghgh')
         dropdown_item[i].addEventListener('click', function select_dorpdow_(e) {
-            console.log('ghghgh')
+            select_img.setAttribute('src',e.target.src)
+            select.textContent = e.target.value
+            select.value = e.target.value
         })
     }
 }
-select_dorpdow() 
-setTimeout(()=>{active_dropdow()},1000)
+
+setTimeout(()=>{select_dropdown()},1000)
+setTimeout(()=>{active_dropdown()},1000)
