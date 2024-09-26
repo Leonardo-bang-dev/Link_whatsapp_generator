@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">    
     <title>Whatssap Link Generator</title>
 </head>
 <body>
-    <main>
+    <main onload="create_contry_code_opc(), select_dorpdow()">
         <h1>Generator Link Contact</h1>
         <div class="fild_container">
-            <div class="select">
-                <div class="select_title" >
-                    <img src="https://flagcdn.com/gs.svg" alt="" class="img_select">
-                    <span id="code_country">+55</span>
+            <div class="dropdown">
+                <div class="dropdown-select">
+                    <img class="select-img" src="https://flagcdn.com/gs.svg" alt="">
+                    <span class="select">+595</span>
+                    <i class="fa fa-caret-down"></i>
                 </div>
-                <div class="select_options">
-                    <span></span>
+                <div class="dropdown-list">
+                    
                 </div>
             </div>
             <input type="text" id="number" placeholder="Phone number">

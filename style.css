@@ -50,16 +50,16 @@ h1 {
     align-items: center;
 }
 
-.select,
+.dropdown,
 #number {
-    height: 35px;
+    height: 40px;
     border: 0px;
-    font-size: 1.1em;
+    font-size: 1.0em;
     background-color: whitesmoke;
 }
 
 #number {
-    width: 75%;
+    width: 65%;
     padding: 0 5px;
 }
 
@@ -68,6 +68,78 @@ h1 {
     outline: 0;
 }   
 
+/* slect box */
+
+.dropdown {
+    width: 35%;
+    border-right: 1px solid #191919ab;
+    position: relative;
+}
+
+.dropdown-select {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 5px;
+    cursor: pointer;
+}
+
+.select-img {
+    width: 28%;
+    height: auto;
+}
+
+.select-text {
+    width: 50%;
+    text-align: center;
+}
+
+.fa {
+    width: 10%;
+}
+
+.dropdown-list {
+    max-height: 600%;
+    background-color: whitesmoke;
+    border: 1px solid #191919ab;
+    position: absolute;
+    left: 0;
+    right: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s linear;
+    overflow-y: auto
+}
+
+.dropdown-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.dropdown-list::-webkit-scrollbar-track-piece {
+    background-color: #c5c5c5;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+    background-color: #ffd13bda;
+}
+
+.dropdown-list__item {
+    height: 40px;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #191919ab
+}
+
+.dropdown-list__item:hover {
+    background-color: #ffd13b91;
+}
+
+/* buttons open_contact */
 .open_contact {
     padding: 10px 20px; 
     font-size: 1.2em;
@@ -122,46 +194,6 @@ h1 {
     -ms-user-select: none;        /* IE10+ */
     user-select: none;            /* Possível implementação no futuro */
     /* cursor: default; */
-}
-
-/* slect box */
-
-.select {
-    position: relative;
-    width: 25%;
-    text-align: center;
-    border-right: 1px solid rgb(83, 83, 83);
-}
-
-.select_title{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0px 10px;
-}
-
-.select_title span {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    
-}
-
-.img_select {
-    width: 45%;
-    height: auto;
-}
-
-.select_optios {
-    position: absolute;
-    text-align: end;
-    background-image: url('assets/imgs/background.jpg');
-    background-repeat: no-repeat;           
-    background-size: cover;
 }
 
 
