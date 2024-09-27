@@ -105,6 +105,7 @@ h1 {
     background-color: whitesmoke;
     border: 1px solid #191919ab;
     position: absolute;
+    z-index: 2;
     left: 0;
     right: 10;
     opacity: 0;
@@ -132,7 +133,16 @@ h1 {
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
-    border-bottom: 1px solid #191919ab
+    border-bottom: 1px solid #191919ab;
+    position: relative;
+}
+
+.info_box_item {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background: transparent;
 }
 
 .dropdown-list__item:hover {
@@ -287,10 +297,6 @@ h1 {
     .link_container {
         height: 30px;
         
-    }
-
-    .link_container button {
-        font-size: .7em;
     }
 
     #link_content {

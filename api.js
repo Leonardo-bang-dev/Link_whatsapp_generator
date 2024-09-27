@@ -1,5 +1,60 @@
 const URL_API = 'https://restcountries.com/v3.1/all'
 
+/* Active the dropdown function */
+
+function active_dropdown() {
+    const dropdown_item = document.querySelectorAll('.dropdown-list__item')
+    const dropdown_list = document.querySelector('.dropdown-list')
+    const dropdown = document.querySelector('.dropdown-select')
+
+    for (let i=0;i<dropdown_item.length;i++) {
+        dropdown_item[i].addEventListener('click',function visibility(){
+            if (dropdown_list.style.opacity == 0) {
+                dropdown_list.style.opacity = 1
+                dropdown_list.style.visibility = 'visible'
+            } else {
+                dropdown_list.style.opacity = 0
+                dropdown_list.style.visibility = 'hidden'
+            }
+        })
+    }
+    dropdown.addEventListener('click',function visibility(){
+        if (dropdown_list.style.opacity == 0) {
+            dropdown_list.style.opacity = 1
+            dropdown_list.style.visibility = 'visible'
+        } else {
+            dropdown_list.style.opacity = 0
+            dropdown_list.style.visibility = 'hidden'
+        }
+    })
+}
+
+function desactive_dropdown() {
+    const all_elements = document.querySelectorAll('#number')
+    const dropdown_list = document.querySelector('.dropdown-list')
+    console.log(all_elements)
+    for (let i=0;i<all_elements.length;i++) {
+        all_elements[i].addEventListener('click', function desactive_dropdown() {
+            if (dropdown_list.style.opacity == 1) {
+                dropdown_list.style.opacity = 0
+                dropdown_list.style.visibility = 'hidden'
+            } 
+        })
+    }
+}
+
+function select_dropdown() {
+    const dropdown_item = document.querySelectorAll('.dropdown-list__item')
+    const select = document.querySelector('.select')
+    const select_img = document.querySelector('.select-img')
+    for (let i=0;i<dropdown_item.length;i++) {
+        dropdown_item[i].addEventListener('click', function select_dorpdow_(e) {
+            select_img.setAttribute('src',e.target.value[1])
+            select.textContent = e.target.value[0]
+            select.value = e.target.value[0]
+        })
+    }
+}
 
 /* generate the code_coutry */
 function code_country_generator(root, suffixes) {
@@ -36,7 +91,6 @@ function create_opc_contry_code(code, img) {
     const dropdown = document.querySelector('.dropdown-list')
     const dropdown_item = document.createElement('div')
     dropdown_item.classList.add('dropdown-list__item')
-    dropdown_item.value = code
     dropdown_item.setAttribute('id','country_code')
 
     const dropdown_item_img = document.createElement('img')
@@ -47,9 +101,15 @@ function create_opc_contry_code(code, img) {
     dropdown_text.classList.add('select-text')
     dropdown_text.textContent = code
 
+    const info_box_item = document.createElement('div')
+    info_box_item.classList.add('info_box_item')
+    info_box_item.setAttribute('id', 'info_box_item')
+    info_box_item.value = [code, img]
+
     dropdown_item.appendChild(dropdown_item_img)
     dropdown_item.appendChild(dropdown_text)
     dropdown.appendChild(dropdown_item)
+    dropdown_item.appendChild(info_box_item)
 }
 
 window.onload = async() => {
@@ -57,8 +117,13 @@ window.onload = async() => {
     
     for (let i=0;i<contry_codes.length;i++) {
         for (i2=0;i2<contry_codes[i].code.length;i2++) {
+            
             create_opc_contry_code(contry_codes[i].code[i2], contry_codes[i].img)
             
         }            
     }
+    
+    active_dropdown()
+    desactive_dropdown()
+    select_dropdown()
 }
