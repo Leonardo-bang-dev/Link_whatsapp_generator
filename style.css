@@ -101,7 +101,7 @@ h1 {
 }
 
 .dropdown-list {
-    max-height: 600%;
+    max-height: 400%;
     background-color: whitesmoke;
     border: 1px solid #191919ab;
     position: absolute;
@@ -112,6 +112,11 @@ h1 {
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s linear;
     overflow-y: auto
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
 }
 
 .dropdown-list::-webkit-scrollbar {
@@ -164,6 +169,35 @@ h1 {
     background-color: #ffd13bda;
     color: whitesmoke;
 }
+
+/* Search item */
+.search_fild {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #191919ab;
+    border-bottom: 0px;
+    font-size: 1.0em;
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.search_fild i {
+    width: 40%;
+}
+
+.search_fild input {
+    width: 60%;
+    height: 100%;
+    padding: 0px 10px;
+    border-radius: 0px;
+    border: 0px;
+}
+
 
 /* Checkbox container */
 

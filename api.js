@@ -2,17 +2,34 @@ const URL_API = 'https://restcountries.com/v3.1/all'
 
 /* Active the dropdown function */
 
+function visibility(elements){
+    for (let i=0;i<elements.length;i++) {
+        if (dropdown_list.style.opacity == 0) {
+            dropdown_list.style.opacity = 1
+            dropdown_list.style.visibility = 'visible'
+        } else {
+            dropdown_list.style.opacity = 0
+            dropdown_list.style.visibility = 'hidden'
+        }
+    }
+}
+
 function active_dropdown() {
     const dropdown_item = document.querySelectorAll('.dropdown-list__item')
     const dropdown_list = document.querySelector('.dropdown-list')
     const dropdown = document.querySelector('.dropdown-select')
+    const search_fild = document.querySelector('.search_fild')
 
     for (let i=0;i<dropdown_item.length;i++) {
-        dropdown_item[i].addEventListener('click',function visibility(){
+        dropdown_item[i].addEventListener('click', ()=> {
             if (dropdown_list.style.opacity == 0) {
+                search_fild.style.opacity = 1
+                search_fild.style.visibility = 'visible'
                 dropdown_list.style.opacity = 1
                 dropdown_list.style.visibility = 'visible'
             } else {
+                search_fild.style.opacity = 0
+                search_fild.style.visibility = 'hidden'
                 dropdown_list.style.opacity = 0
                 dropdown_list.style.visibility = 'hidden'
             }
@@ -20,9 +37,13 @@ function active_dropdown() {
     }
     dropdown.addEventListener('click',function visibility(){
         if (dropdown_list.style.opacity == 0) {
+            search_fild.style.opacity = 1
+            search_fild.style.visibility = 'visible'
             dropdown_list.style.opacity = 1
             dropdown_list.style.visibility = 'visible'
         } else {
+            search_fild.style.opacity = 0
+            search_fild.style.visibility = 'hidden'
             dropdown_list.style.opacity = 0
             dropdown_list.style.visibility = 'hidden'
         }
