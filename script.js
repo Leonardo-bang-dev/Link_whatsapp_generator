@@ -18,6 +18,8 @@ function link_builder() {
     }
 }
 
+
+/* copy the link generate*/
 document.getElementById('btn_copy').addEventListener('click', copy_link);
 async function copy_link() {
   let text = document.querySelector("#link_content").textContent;
@@ -29,6 +31,26 @@ async function copy_link() {
         alert.opacity = 0
     }, 2000)
   }
+}
+
+
+/* Search the country-code in the list*/
+function search_contry_code() {
+    const search_content = document.querySelector('.search_fild input').value
+    const select_items = document.querySelectorAll(".info_box_item")
+    
+    if (Number.isInteger(Number(search_content.replace('+','')))) {
+        let aux = ''
+        for (let i=0; i<select_items.length;i++) {
+            aux = select_items[i].value[0]
+
+            if (aux.search(search_content.replace('+','')) == -1) {
+                select_items[i].parentElement.style.display = 'none'
+            } else {
+                select_items[i].parentElement.style.display = 'flex'
+            }
+        }   
+    }
 }
 
 

@@ -1,19 +1,6 @@
 const URL_API = 'https://restcountries.com/v3.1/all'
 
 /* Active the dropdown function */
-
-function visibility(elements){
-    for (let i=0;i<elements.length;i++) {
-        if (dropdown_list.style.opacity == 0) {
-            dropdown_list.style.opacity = 1
-            dropdown_list.style.visibility = 'visible'
-        } else {
-            dropdown_list.style.opacity = 0
-            dropdown_list.style.visibility = 'hidden'
-        }
-    }
-}
-
 function active_dropdown() {
     const dropdown_item = document.querySelectorAll('.dropdown-list__item')
     const dropdown_list = document.querySelector('.dropdown-list')
@@ -53,12 +40,15 @@ function active_dropdown() {
 function desactive_dropdown() {
     const all_elements = document.querySelectorAll('#number')
     const dropdown_list = document.querySelector('.dropdown-list')
-    console.log(all_elements)
+    const search_fild = document.querySelector('.search_fild')
     for (let i=0;i<all_elements.length;i++) {
         all_elements[i].addEventListener('click', function desactive_dropdown() {
             if (dropdown_list.style.opacity == 1) {
+                search_fild.style.opacity = 0
+                search_fild.style.visibility = 'hidden'
                 dropdown_list.style.opacity = 0
                 dropdown_list.style.visibility = 'hidden'
+                
             } 
         })
     }
@@ -98,17 +88,19 @@ async function country_list() {
         const obj = await resp.json()
         let code_and_flags = []
         for (let i = 0; i<obj.length; i++) {
-            code_and_flags.push({
-                name: obj[i].name.common,
-                code: code_country_generator(obj[i].idd.root, obj[i].idd.suffixes),
-                img: obj[i].flags.svg
-            })
+            if (typeof(obj[i].idd.root) === 'string' && typeof(obj[i].idd.suffixes) === 'object') {
+                code_and_flags.push({
+                    country: obj[i].name.common,
+                    code: code_country_generator(obj[i].idd.root, obj[i].idd.suffixes),
+                    img: obj[i].flags.svg
+                })
+            }
         }
         return code_and_flags
     }
 }
 
-function create_opc_contry_code(code, img) {
+function create_opc_contry_code(code, img, country) {
     const dropdown = document.querySelector('.dropdown-list')
     const dropdown_item = document.createElement('div')
     dropdown_item.classList.add('dropdown-list__item')
@@ -125,7 +117,7 @@ function create_opc_contry_code(code, img) {
     const info_box_item = document.createElement('div')
     info_box_item.classList.add('info_box_item')
     info_box_item.setAttribute('id', 'info_box_item')
-    info_box_item.value = [code, img]
+    info_box_item.value = [code, img, country]
 
     dropdown_item.appendChild(dropdown_item_img)
     dropdown_item.appendChild(dropdown_text)
@@ -138,9 +130,7 @@ window.onload = async() => {
     
     for (let i=0;i<contry_codes.length;i++) {
         for (i2=0;i2<contry_codes[i].code.length;i2++) {
-            
-            create_opc_contry_code(contry_codes[i].code[i2], contry_codes[i].img)
-            
+            create_opc_contry_code(contry_codes[i].code[i2], contry_codes[i].img, contry_codes[i].country)       
         }            
     }
     
