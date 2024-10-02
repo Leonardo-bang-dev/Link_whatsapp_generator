@@ -48,7 +48,6 @@ function desactive_dropdown() {
                 search_fild.style.visibility = 'hidden'
                 dropdown_list.style.opacity = 0
                 dropdown_list.style.visibility = 'hidden'
-                
             } 
         })
     }
